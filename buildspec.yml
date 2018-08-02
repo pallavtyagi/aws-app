@@ -16,5 +16,5 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - build/aws-app-0.0.1-SNAPSHOT.jar
+    - build/libs/aws-app-0.0.1-SNAPSHOT.jar
   discard-paths: yes
