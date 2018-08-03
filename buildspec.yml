@@ -17,4 +17,6 @@ phases:
 artifacts:
   files:
     - build/libs/aws-app-0.0.1-SNAPSHOT.jar
+    - appspec.yml
+    - runapp.sh
   discard-paths: yes
