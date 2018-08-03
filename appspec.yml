@@ -9,4 +9,4 @@ hooks:
       runas: ec2-user
   BeforeInstall:
     - location: prerun.sh
-    - runas: ec2-user
+      runas: ec2-user
