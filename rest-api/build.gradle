@@ -23,9 +23,22 @@ repositories {
 	mavenCentral()
 }
 
+task fatJar(type: Jar) {
+	baseName = project.name + version
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
+	manifest {
+		attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
+		attributes 'Main-Class': 'com.aws.tests.awslearning.Application'
+	}
+}
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
-	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-web') {
+		exclude group: 'org.apache.tomcat.embed'
+	}
+	compile('com.amazonaws.serverless:aws-serverless-java-container-spring:1.1.4')
+	compile('com.amazonaws:aws-java-sdk:1.11.383')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
