@@ -64,6 +64,26 @@
                 ]
             },
             {
+                "name": "DeploymentApproval",
+                "actions": [
+                    {
+                        "name": "DeploymentApproval",
+                        "actionTypeId": {
+                            "category": "Approval",
+                            "owner": "AWS",
+                            "provider": "Manual",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "NotificationArn": "arn:aws:sns:us-east-2:667124177225:aws-app-pipeline-notification"
+                        },
+                        "outputArtifacts": [],
+                        "inputArtifacts": []
+                    }
+                ]
+            },
+            {
                 "name": "DeployDev",
                 "actions": [
                     {
@@ -89,6 +109,6 @@
                 ]
             }
         ],
-        "version": 3
+        "version": 5
     }
 }
