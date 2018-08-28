@@ -1,0 +1,274 @@
+{
+    "Resources": {
+        "InstancePolicy": {
+            "Properties": {
+                "PolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "dynamodb:RestoreTableToPointInTime",
+                                "dynamodb:UpdateGlobalTable",
+                                "dynamodb:DeleteTable",
+                                "s3:PutLifecycleConfiguration",
+                                "dynamodb:DescribeContinuousBackups",
+                                "s3:PutObjectTagging",
+                                "s3:DeleteObject",
+                                "s3:GetIpConfiguration",
+                                "dynamodb:UpdateTimeToLive",
+                                "dynamodb:BatchWriteItem",
+                                "s3:GetBucketWebsite",
+                                "s3:PutReplicationConfiguration",
+                                "dynamodb:UpdateItem",
+                                "s3:DeleteObjectVersionTagging",
+                                "s3:GetBucketNotification",
+                                "s3:GetReplicationConfiguration",
+                                "dynamodb:CreateTable",
+                                "s3:PutObject",
+                                "s3:PutBucketNotification",
+                                "dynamodb:GetShardIterator",
+                                "dynamodb:DescribeReservedCapacity",
+                                "dynamodb:UpdateTable",
+                                "s3:GetLifecycleConfiguration",
+                                "s3:GetInventoryConfiguration",
+                                "s3:GetBucketTagging",
+                                "dynamodb:ListTables",
+                                "s3:ReplicateTags",
+                                "dynamodb:ListTagsOfResource",
+                                "dynamodb:CreateBackup",
+                                "s3:ListBucket",
+                                "dynamodb:DescribeReservedCapacityOfferings",
+                                "s3:AbortMultipartUpload",
+                                "s3:PutBucketTagging",
+                                "dynamodb:DescribeLimits",
+                                "s3:DeleteBucket",
+                                "s3:PutBucketVersioning",
+                                "s3:ListBucketMultipartUploads",
+                                "s3:PutMetricsConfiguration",
+                                "s3:PutObjectVersionTagging",
+                                "dynamodb:Query",
+                                "dynamodb:DescribeStream",
+                                "s3:GetBucketVersioning",
+                                "dynamodb:ListStreams",
+                                "s3:PutInventoryConfiguration",
+                                "dynamodb:ListGlobalTables",
+                                "s3:PutBucketWebsite",
+                                "s3:ListAllMyBuckets",
+                                "s3:PutBucketRequestPayment",
+                                "dynamodb:DescribeGlobalTable",
+                                "s3:GetBucketCORS",
+                                "s3:GetObjectVersion",
+                                "s3:PutAnalyticsConfiguration",
+                                "s3:GetObjectVersionTagging",
+                                "s3:CreateBucket",
+                                "s3:ReplicateObject",
+                                "s3:GetObjectAcl",
+                                "s3:DeleteBucketWebsite",
+                                "dynamodb:DescribeTable",
+                                "dynamodb:GetItem",
+                                "s3:GetObjectVersionAcl",
+                                "s3:HeadBucket",
+                                "s3:DeleteObjectTagging",
+                                "dynamodb:BatchGetItem",
+                                "dynamodb:PutItem",
+                                "dynamodb:Scan",
+                                "s3:PutBucketCORS",
+                                "s3:ListMultipartUploadParts",
+                                "dynamodb:UpdateGlobalTableSettings",
+                                "s3:GetObject",
+                                "s3:PutBucketLogging",
+                                "s3:GetAnalyticsConfiguration",
+                                "s3:GetObjectVersionForReplication",
+                                "dynamodb:DescribeBackup",
+                                "dynamodb:GetRecords",
+                                "s3:ListBucketByTags",
+                                "s3:PutAccelerateConfiguration",
+                                "dynamodb:DeleteItem",
+                                "s3:DeleteObjectVersion",
+                                "s3:GetBucketLogging",
+                                "s3:ListBucketVersions",
+                                "dynamodb:PurchaseReservedCapacityOfferings",
+                                "s3:RestoreObject",
+                                "s3:GetAccelerateConfiguration",
+                                "s3:GetBucketPolicy",
+                                "dynamodb:UpdateContinuousBackups",
+                                "s3:PutEncryptionConfiguration",
+                                "s3:GetEncryptionConfiguration",
+                                "s3:GetObjectVersionTorrent",
+                                "dynamodb:TagResource",
+                                "s3:GetBucketRequestPayment",
+                                "s3:GetObjectTagging",
+                                "dynamodb:CreateGlobalTable",
+                                "s3:GetMetricsConfiguration",
+                                "dynamodb:UntagResource",
+                                "dynamodb:ListBackups",
+                                "dynamodb:DescribeTimeToLive",
+                                "s3:GetBucketAcl",
+                                "s3:PutIpConfiguration",
+                                "dynamodb:DescribeGlobalTableSettings",
+                                "s3:GetObjectTorrent",
+                                "dynamodb:RestoreTableFromBackup",
+                                "dynamodb:DeleteBackup",
+                                "s3:GetBucketLocation",
+                                "s3:ReplicateDelete"
+                            ],
+                            "Effect": "Allow",
+                            "Resource": "*",
+                            "Sid": "VisualEditor0"
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                }
+            },
+            "Type": "AWS::IAM::Policy",
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "8178f4e5-65e4-4e7c-b2f0-97311480f2b8"
+                }
+            }
+        },
+        "InstanceRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "Policies": [
+                    {
+                        "PolicyName": {
+                            "Ref": "InstancePolicy"
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "f2053ba8-8af8-4c19-8100-7852ccf764c6"
+                }
+            }
+        },
+        "Node1": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "KeyName": {
+                    "Ref": "KeyName"
+                },
+                "InstanceType": {
+                    "Ref": "InstanceType"
+                },
+                "ImageId": {
+                    "Ref": "ImageId"
+                },
+                "AvailabilityZone": {
+                    "Ref": "AvailabilityZone"
+                },
+                "IamInstanceProfile": {
+                    "Ref": "InstanceProfile"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6779df4e-d127-439d-ab1a-c62f1bf823b4"
+                }
+            }
+        },
+        "InstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+                "Path": "/",
+                "Roles": [
+                    {
+                        "Ref": "InstanceRole"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e40fb488-62d8-4b13-bdad-b1a37966907d"
+                }
+            }
+        }
+    },
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "8178f4e5-65e4-4e7c-b2f0-97311480f2b8": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 60,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "f2053ba8-8af8-4c19-8100-7852ccf764c6": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 180,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": [],
+                "isassociatedwith": [
+                    "8178f4e5-65e4-4e7c-b2f0-97311480f2b8"
+                ]
+            },
+            "6779df4e-d127-439d-ab1a-c62f1bf823b4": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 530,
+                    "y": 50
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "e40fb488-62d8-4b13-bdad-b1a37966907d": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 123,
+                    "y": 185
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "f2053ba8-8af8-4c19-8100-7852ccf764c6"
+                ]
+            },
+            "0250377e-512b-4ba7-a962-bc2d51a33aed": {
+                "source": {
+                    "id": "e40fb488-62d8-4b13-bdad-b1a37966907d"
+                },
+                "target": {
+                    "id": "f2053ba8-8af8-4c19-8100-7852ccf764c6"
+                },
+                "z": 2
+            }
+        }
+    },
+    "Parameters": {
+        "KeyName": {
+            "Type": "String",
+            "Default": "ec2-aws-app.pem"
+        },
+        "InstanceType": {
+            "Type": "String",
+            "Default": "t2.micro",
+            "AllowedValues": [
+                "t2.micro"
+            ],
+            "Description": "Enter t2.micro only allowed value."
+        },
+        "ImageId": {
+            "Type": "String",
+            "Default": "ami-0cf31d971a3ca20d6",
+            "Description": "Enter Image Id as per the AZ."
+        }
+    }
+}
