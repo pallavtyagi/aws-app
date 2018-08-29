@@ -10,11 +10,11 @@
                     "Ref": "ImageId"
                 },
                 "LaunchConfigurationName": "AppLaunchConfiguration",
-                "IamInstanceProfile":"arn:aws:iam::667124177225:instance-profile/AppInstanceProfile",
+                "IamInstanceProfile":"arn:aws:iam::667124177225:instance-profile/*",
                 "KeyName":{
                     "Ref":"KeyName"
                 },
-                "SecurityGroups": ["arn:aws:ec2:us-east-2a:667124177225:security-group/SSHSecurityGroup"]
+                "SecurityGroups": ["arn:aws:ec2:us-east-2:667124177225:security-group/*"]
                 
             }
         }
