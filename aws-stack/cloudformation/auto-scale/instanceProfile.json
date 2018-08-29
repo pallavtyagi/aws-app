@@ -158,32 +158,7 @@
         }
       }
     },
-    "Node1": {
-      "Type": "AWS::EC2::Instance",
-      "Properties": {
-        "KeyName": {
-          "Ref": "KeyName"
-        },
-        "InstanceType": {
-          "Ref": "InstanceType"
-        },
-        "ImageId": {
-          "Ref": "ImageId"
-        },
-        "AvailabilityZone": {
-          "Ref": "AvailabilityZone"
-        },
-        "IamInstanceProfile": {
-          "Ref": "InstanceProfile"
-        }
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "6779df4e-d127-439d-ab1a-c62f1bf823b4"
-        }
-      }
-    },
-    "InstanceProfile": {
+    "AppInstanceProfile": {
       "Type": "AWS::IAM::InstanceProfile",
       "Properties": {
         "Path": "/",
@@ -200,97 +175,10 @@
       }
     }
   },
-  "Metadata": {
-    "AWS::CloudFormation::Designer": {
-      "8178f4e5-65e4-4e7c-b2f0-97311480f2b8": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 60,
-          "y": 90
-        },
-        "z": 1,
-        "embeds": [],
-        "isassociatedwith": [
-          "f2053ba8-8af8-4c19-8100-7852ccf764c6"
-        ]
-      },
-      "f2053ba8-8af8-4c19-8100-7852ccf764c6": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 380,
-          "y": 10
-        },
-        "z": 1,
-        "embeds": []
-      },
-      "6779df4e-d127-439d-ab1a-c62f1bf823b4": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 530,
-          "y": 50
-        },
-        "z": 0,
-        "embeds": []
-      },
-      "e40fb488-62d8-4b13-bdad-b1a37966907d": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 123,
-          "y": 185
-        },
-        "z": 0,
-        "embeds": [],
-        "isassociatedwith": [
-          "f2053ba8-8af8-4c19-8100-7852ccf764c6"
-        ]
-      },
-      "dcec329d-6e30-4d25-88ff-e4a77b419143": {
-        "source": {
-          "id": "e40fb488-62d8-4b13-bdad-b1a37966907d",
-          "selector": "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     ",
-          "port": "AWS::RefLink-AWS::IAM::Role-Roles"
-        },
-        "target": {
-          "id": "f2053ba8-8af8-4c19-8100-7852ccf764c6"
-        },
-        "z": 13
-      },
-      "3dc85026-6382-4989-a06f-75303d10d20d": {
-        "source": {
-          "id": "e40fb488-62d8-4b13-bdad-b1a37966907d"
-        },
-        "target": {
-          "id": "f2053ba8-8af8-4c19-8100-7852ccf764c6"
-        },
-        "z": 12
-      },
-      "409b91d2-b448-4b38-8b72-e6bdf69d60c8": {
-        "source": {
-          "id": "8178f4e5-65e4-4e7c-b2f0-97311480f2b8"
-        },
-        "target": {
-          "id": "f2053ba8-8af8-4c19-8100-7852ccf764c6"
-        },
-        "z": 13
-      }
-    }
-  },
   "Parameters": {
     "KeyName": {
       "Type": "String",
-      "Default": "ec2-aws-app.pem"
+      "Default": "ec2-aws-app"
     },
     "InstanceType": {
       "Type": "String",
@@ -309,6 +197,52 @@
       "Type": "String",
       "Default": "us-east-2a",
       "Description": "Enter AZ."
+    }
+  },
+  "Metadata": {
+    "AWS::CloudFormation::Designer": {
+      "f2053ba8-8af8-4c19-8100-7852ccf764c6": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 60,
+          "y": 90
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "e40fb488-62d8-4b13-bdad-b1a37966907d": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 180,
+          "y": 90
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "f2053ba8-8af8-4c19-8100-7852ccf764c6"
+        ]
+      },
+      "8178f4e5-65e4-4e7c-b2f0-97311480f2b8": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 60,
+          "y": 210
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "f2053ba8-8af8-4c19-8100-7852ccf764c6"
+        ]
+      }
     }
   }
 }

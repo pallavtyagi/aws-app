@@ -1,0 +1,22 @@
+{
+    "Resources": {
+        "AppLaunchConfiguration": {
+            "Type": "AWS::AutoScaling::LaunchConfiguration",
+            "Properties": {
+                "InstanceType": {
+                    "Ref": "InstanceType"
+                },
+                "ImageId":{
+                    "Ref": "ImageId"
+                },
+                "LaunchConfigurationName": "AppLaunchConfiguration",
+                "IamInstanceProfile":"arn:aws:iam::667124177225:instance-profile/AppInstanceProfile",
+                "KeyName":{
+                    "Ref":"KeyName"
+                },
+                "SecurityGroups": ["arn:aws:ec2:us-east-2a:667124177225:security-group/SSHSecurityGroup"]
+                
+            }
+        }
+    }
+}

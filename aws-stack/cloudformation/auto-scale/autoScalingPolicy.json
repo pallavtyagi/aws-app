@@ -1,0 +1,13 @@
+{
+    "Resources": {
+        "AutoScalingPolicy": {
+            "Type": "AWS::AutoScaling::ScalingPolicy",
+            "Properties": {
+                "AdjustmentType" : "ChangeInCapacity",
+                "PolicyType" : "SimpleScaling",	
+                "Cooldown" : "60",
+                "ScalingAdjustment" : 1
+            }
+        }
+    }
+}

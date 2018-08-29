@@ -1,0 +1,24 @@
+{
+    "Resources": {
+        "AutoScalinGroup": {
+            "Type": "AWS::AutoScaling::AutoScalingGroup",
+            "Properties": {
+                "AutoScalingGroupName": "AutoScalingGroup",
+                "AvailabilityZones": {"Fn::GetAZs": "" },
+                "LaunchConfigurationName": "arn:aws:ec2:us-east-2a:667124177225:launch-template/AppLaunchConfiguration",
+                "MinSize": "1",
+                "MaxSize": "2",
+                "LoadBalancerNames": "<TODO>",
+                "MetricsCollection": [
+                    {
+                        "Granularity": "1Minute",
+                        "Metrics": [
+                            "GroupMinSize",
+                            "GroupMaxSize"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
