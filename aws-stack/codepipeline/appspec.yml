@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: ./
+    destination: /home/ec2-user/aws-app
+hooks:
+  ApplicationStart:
+    - location: runapp.sh
+      runas: ec2-user
+  BeforeInstall:
+    - location: prerun.sh
+      runas: ec2-user
