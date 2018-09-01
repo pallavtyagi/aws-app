@@ -6,17 +6,47 @@
                 "InstanceType": {
                     "Ref": "InstanceType"
                 },
-                "ImageId":{
+                "ImageId": {
                     "Ref": "ImageId"
                 },
                 "LaunchConfigurationName": "AppLaunchConfiguration",
-                "IamInstanceProfile":"arn:aws:iam::667124177225:instance-profile/*",
-                "KeyName":{
-                    "Ref":"KeyName"
+                "IamInstanceProfile": "arn:aws:iam::667124177225:instance-profile/instance-profile-AppInstanceProfile-12TUU8KICAJMA",
+                "KeyName": {
+                    "Ref": "KeyName"
                 },
-                "SecurityGroups": ["arn:aws:ec2:us-east-2:667124177225:security-group/*"]
-                
+                "SecurityGroups": [
+                    { "Fn::Sub": "arn:aws:ec2:us-east-2:667124177225:security-group/sg-0fdc944abcefc858c" }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "408235a6-9db1-43f3-a9a0-7d1a87b39920"
+                }
             }
+        }
+    },
+    "Parameters": {
+        "KeyName": {
+            "Type": "String",
+            "Default": "ec2-aws-app"
+        },
+        "InstanceType": {
+            "Type": "String",
+            "Default": "t2.micro",
+            "AllowedValues": [
+                "t2.micro"
+            ],
+            "Description": "Enter t2.micro only allowed value."
+        },
+        "ImageId": {
+            "Type": "String",
+            "Default": "ami-0cf31d971a3ca20d6",
+            "Description": "Enter Image Id as per the AZ."
+        },
+        "AvailabilityZone": {
+            "Type": "String",
+            "Default": "us-east-2a",
+            "Description": "Enter AZ."
         }
     }
 }
