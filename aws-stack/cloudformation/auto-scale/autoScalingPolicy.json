@@ -1,13 +1,19 @@
 {
-    "Resources": {
-        "AutoScalingPolicy": {
-            "Type": "AWS::AutoScaling::ScalingPolicy",
-            "Properties": {
-                "AdjustmentType" : "ChangeInCapacity",
-                "PolicyType" : "SimpleScaling",	
-                "Cooldown" : "60",
-                "ScalingAdjustment" : 1
-            }
+  "Resources": {
+    "AutoScalingPolicy": {
+      "Type": "AWS::AutoScaling::ScalingPolicy",
+      "Properties": {
+        "AutoScalingGroupName": {
+          "Ref": "AutoScalinGroup"
+        },
+        "PolicyType": "TargetTrackingScaling",
+        "TargetTrackingConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "ASGAverageCPUUtilization"
+          },
+          "TargetValue": "80"
         }
+      }
     }
+  }
 }
